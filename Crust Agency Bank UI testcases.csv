@@ -1,0 +1,56 @@
+,,,Project Name,Crust Agency Banking,,,LEGEND,,,,,
+,,,Reference Document,Crust Agency Bank V.1.0,,,Test Case ID (E.g; CB_CB_001) : Crust Banking SERIAL NUMBER (3 CHARACTERS) ,,,,,
+,,,Created by,Bright Okiyi,,,"Scenario Types : POSITIVE, NEGATIVE",,,,,
+,,,Date of creation,4th Aug 2022,,,"Status : Green (Pass), Red (Fail), Yellow (UI Defect)",,,,,
+,,,Date of review,,,,,,,,,
+TEST CASE ID,FUNCTION,SUB-FUNCTION,SCENARIO TYPE,TESTCASE,PRE-CONDITIONS,REQUIRED TEST DATA,STEPS,EXPECTED RESULT,ACTUAL RESULT,STATUS (FIRST ITERATION),STATUS (SECOND ITERATION),COMMENTS
+CB_CB_001,SIGN UP,Sign up catgegory,Positive,Verify all required fields by not entering the data,,,"1. Open the mobile application
+2. Go to the sign up category
+3.Do not enter any value in mandatory field and click on signup","1.* should show asking for mandatory field
+",As expected,PASS,,
+,,,Negative,"verify that user can sign up with an invalid email i.e for some invalid emails with cases like: without @, without(.), without domain, without alphabets before @",,1. An invalid email,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter invalid emails and then click signup","1.User should be prompted to enter a valid email address and the user shouldn't be signed up
+2. A message bearer "" ivalid/incorred value format"" is displayed",As expected,PASS,,
+,,,Positive,Verify that the user can sign up with a valid email,The email shouldn’t have been used before,1. a valid Email,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter invalid emails and then click signup",1.User should not see any email related warning and should be sent a registration mail,As expected,PASS,,
+,,,Positive,Verify that the user cannot sign up with already existing email,The Email must have been used,,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter an already existing email and then click signup
+",1.User should be prompted with a message that email already exists. And should be asked to login instead. ,As expected,PASS,,
+,,,Negative,Verify that the user cannot sign up with an invalid phone number,,1. invalid phone number,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter invalid phone number and then click signup",User should be prompted to enter a valid phone number,As expected,PASS,,
+,,,Positive,Test for input with country code applied,,,"
+1. Open the mobile application
+2. Go to the sign up category
+3 Enter phone number with country code and then click signup",1.It should not show any validation message,As expected,PASS,,
+,,,Negative,verify that user cannot sign up with  password for less value than minimum,,1. A password with less than 8 characters,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter a password with less than 8 characters",It should prompt the user to enter a value between 8 to 16 characters,As expected,PASS,,
+,,,Negative,verify that user cannot sign up with  password for more value than maximum,,1. A password with more than 16 characters,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter a password with more than 16 characters",It should prompt the user to enter a value between 8 to 16 characters,Not As expected,FAIL,,
+,,,Negative,Check the password with alphanumeric characters but without special character,,1,"1. Open the mobile application
+2. Go to the sign up category
+3 Enter an alphanumeric password between 8 to 16 characters but without special character",It should prompt the user to enter a valid password having a special character,As expected,PASS,,
+,,,Positive,Verify the system sends an OTP code for verification to phone or email,,valid number/Email,"
+1. Open the mobile application
+2. Go to the sign up category
+3 Enter phone number or email to verify","1. A success message "" otp sent "" is diplayed 
+1. user should receive otp via number or mail provided",As expected,PASS,,
+,,,Positive,Verify that OTP expires every 5 minutes without use,,,"
+1. Open the mobile application
+2. Go to the sign up category
+3 Enter phone number or email to verify","1. A message bearer "" OTP has expired request for a new one "" should be displayed ",Not as expected,FAIL,,
+,,,Positive,Verify that user is able to sign up  by entering all the data and validating,,"First name
+Last name
+Email/phone number
+Password","
+1. Open the mobile application
+2. Go to the sign up category
+3 Enter all details.
+4. vefify number/Email using OTP
+5. creat a password
+6. click on sign up","1. User should be signed up, A succesful registration mesage should be sent along with a mail",As expected,PASS,,
